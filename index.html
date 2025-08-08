@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        /* MODIFICADO: Estilos para a imagem de fundo fixa agora estão no body */
         body {
             font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
@@ -20,25 +19,15 @@
             color: #333;
             line-height: 1.6;
             
-            /* --- INÍCIO DOS ESTILOS DA IMAGEM DE FUNDO --- */
-            /* IMPORTANTE: Altere o caminho para a sua foto */
-            background-image: url(imagens/beijo\ em\ pé.png);
+            /* ATENÇÃO: Corrigi o caminho da imagem para funcionar na web. */
+            /* Recomendo renomear o arquivo para "beijo-em-pe.png" e usar esse nome aqui. */
+            background-image: url('imagens/beijo%20em%20pé.png');
             
-            /* Garante que a imagem fique fixa durante a rolagem */
             background-attachment: fixed; 
-            
-            /* Centraliza a imagem na tela */
             background-position: center center;
-            
-            /* Faz a imagem cobrir todo o espaço sem distorcer */
             background-size: cover; 
-            
-            /* Impede que a imagem se repita */
             background-repeat: no-repeat;
-            /* --- FIM DOS ESTILOS DA IMAGEM DE FUNDO --- */
         }
-
-        /* REMOVIDO: O estilo para .video-background-fixed não é mais necessário */
         
         .content-wrapper {
             position: relative;
@@ -150,7 +139,7 @@
                 <div class="details-item"><strong>Data</strong><p>Sábado, 15 de agosto de 2026</p></div>
                 <div class="details-item"><strong>Horário</strong><p>às 16:00 horas</p></div>
                 <div class="details-item"><strong>Local</strong><p>Espaço Helen Aguiar</p><p>R. Istambul, 170 - Trevo, Belo Horizonte - MG, 31370-470</p></div>
-                <a href="http://googleusercontent.com/maps.google.com/7" target="_blank" class="map-button">Ver no Mapa</a>
+                <a href="http://googleusercontent.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" target="_blank" class="map-button">Ver no Mapa</a>
             </div>
         </div>
 
@@ -163,7 +152,6 @@
         <div class="container">
             <h2>Galeria de Fotos</h2>
             <p>Um pouco dos nossos momentos especiais que nos trouxeram até aqui.</p>
-            
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="imagens/beijo em pé.png" alt="Beijo em pé"></div>
@@ -176,6 +164,29 @@
             </div>
         </div>
 
+        <div class="container">
+            <h2>Deixe seu Recado</h2>
+            <p>Adoraríamos ler uma mensagem de carinho de vocês!</p>
+            
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    // MUITO IMPORTANTE: Substitua a URL abaixo pela URL real do seu site no GitHub Pages
+                    this.page.url = https://github.com/carloscaceresdev/Convite-de-casamento/;
+                    
+                    // Este é um identificador único para esta página. Você pode manter este se quiser.
+                    this.page.identifier = 'casamento-bruna-e-carlos-v1';
+                };
+                
+                (function() { // NÃO EDITE ABAIXO DESTA LINHA
+                var d = document, s = d.createElement('script');
+                s.src = 'https://casamento-bruna-e-carlos.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
         <footer>
             <p>Feito com amor, para o nosso grande dia.</p>
             <p>Bruna & Carlos | 2026</p>
@@ -188,14 +199,8 @@
     <script>
       const swiper = new Swiper('.swiper', {
         loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
       });
     </script>
 
